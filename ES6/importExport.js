@@ -37,6 +37,3 @@ export default function() { }
 import myfunc from Myfun;
 myfunc();
 
-
-
-

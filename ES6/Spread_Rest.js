@@ -1,3 +1,6 @@
+
+// ------- In Array ----------------------
+
 //Adding element to an existing array 
 
 var arr1 = ['a','b','c'];
@@ -47,9 +50,19 @@ console.log(arr1);  // will have output [2,4,6]
 
 
 
+// ------- In Object ----------------------
 
+var morning = {
+                breakfast: "Eggs",
+                lunch: "Burger"
+              };
 
+var dinner = "Pizza";
 
+var backpackingMeals = {
+                        ...morning,
+                        dinner 
+                       };
 
-
+console.log(backpackingMeals); // {breakfast: "Eggs", lunch: "Burger", dinner: "Pizza"}
 

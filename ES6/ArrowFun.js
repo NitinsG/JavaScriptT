@@ -45,4 +45,3 @@ var length = arr1.map ((element) => {
 
 var length = arr1.map ((element) => element.length );
 
-
