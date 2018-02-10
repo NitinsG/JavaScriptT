@@ -1,3 +1,7 @@
+/* Two main benefits of arrow functions:
+1. Shorter Syntax
+2. No binding of this
+*/
 
 //Syntax
 
@@ -44,4 +48,28 @@ var length = arr1.map ((element) => {
              });
 
 var length = arr1.map ((element) => element.length );
+
+//-------- bind this-------------
+
+function Counter() {
+  this.num = 0;
+  this.timer = setInterval(function add() {     //setInterval is async function , doesn't keep the scope for this, and this binds to window object.
+    console.log(this);
+  }, 1000);
+}
+
+var b = new Counter();
+
+//Clear interval
+clearInterval(b.timer); 
+
+function Counter() {
+  this.num = 0;
+  this.timer = setInterval(() => {    //Here arrow function binds the this with object passed.
+    this.num++;
+    console.log(this.num);
+  }, 1000);
+}
+
+var b = new Counter();
 
