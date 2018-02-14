@@ -1,5 +1,6 @@
 
-//Assign variables from Objects
+// Assign variables from Objects
+// a convenient way of extracting multiple values from data stored in (possibly nested) objects and Arrays
 
 //OLD
 var abc = {a: 1, b: 2, c:3 };
@@ -23,6 +24,23 @@ var sandwich = {
 
 var {bread, meat} = sandwich
 console.log(bread, meat) // dutch crunch tuna
+
+const profile = {
+	firstName: "John",
+	lastName: "Appleseed",
+	email: "john.appleseed@plant.com",
+	mobile: "+001-23234324322",
+	gender: "male"
+};
+
+const {email: e, mobile: m} = profile;
+console.log(e);   // "john.appleseed@plant.com"
+
+// OR
+// {prop} is short for {prop: prop}
+
+const {firstName, lastName} = profile;
+console.log(lastName)  // "Appleseed"
 
 //Dest of array
 
