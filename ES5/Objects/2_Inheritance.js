@@ -67,7 +67,6 @@ var Book = (function (){
      
      numOfBooks++;   //Keep track of how many books have been instantiated.
 
-
      if(numOfBooks> 50) throw new Error('Book: only 50 instance can be created' + 'created');
      
      this.setIsbn(newIsbn);
@@ -76,6 +75,13 @@ var Book = (function (){
     }   
 })();
 
+// Public static methods
+Book.converttoTitleCase = function(inputString){
 
+};
 
-
+//Public, non-privileged methods.
+Book.prototype = {
+  display: function(){
+  }
+};
