@@ -198,4 +198,69 @@ For clarity, here is all of the code together in one block. Look it over, and co
      .mul(3)
      .equal(function () {})
 
+//There is difference in using this in nested function for example:
+
+function abc() {
+   console.log(this);
+    (function xyz(){ 
+      console.log(this); 
+    })();
+}
+
+var a = {};
+
+abc.call(a);
+
+// logs: {} and windows Object. First 'this' is 'a' object and second 'this' is windows.
+
+/* Note : JavaScript always use context (Object) to call the function, if you havn't describe the context (Object) then JavaScript uses the Global Object to invoke the method.
+Global Object in case of Browser is Window. So 'this' in nested function becomes the Global Object (Context). 
+*/
+
+var myObject = {
+  foo: "Bar",
+  func: function() {
+          var that = this;
+          console.log("Outer that.foo member = " + that.foo);    //Bar
+          console.log("Outer this.foo member = " + this.foo);    //Bar
+          (function() {
+            console.log("inner func:  that.foo = " + that.foo);   //Bar
+            console.log("inner func:  this.foo = " + this.foo);   //undefined
+          }());
+        }
+}
+myObject.func();
+          
+Outer that.foo member = Bar
+Outer this.foo member = Bar
+inner func:  that.foo = Bar
+inner func:  this.foo = undefined
+
+// This is the reason we use this & that possible solution. 
+
+// Lets have some public private privileged access patterns for javascript
+
+function Container(param) {
+    this.member = param; //public member
+    //private
+    var secret = 3;
+        that = this; //makes outer object available to private methods
+
+    //private method..
+    var test_private = function(){
+        alert("u cant see me !!! from outside!!");
+    };
+
+    //privileged method - can be seen from outside..and can access private methods..
+    this.test_privileged = function(){
+        alert("hello...wanna see me call a private method");
+        test_private();
+    };
+
+}
+
+//public method
+Container.prototype.stamp = function (string) {
+    return this.member + string;
+}
 
