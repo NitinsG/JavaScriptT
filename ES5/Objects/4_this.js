@@ -238,6 +238,83 @@ inner func:  this.foo = undefined
 
 // This is the reason we use this & that possible solution. 
 
+
+// Other solution is to use arrow functions 
+
+Example 1:
+
+Problem :
+
+var std_obj = {
+  options : { rows: 0, cols: 0 },
+  activeEffect : "none",
+  displayMe : function() {
+
+    // the 'this' pointer is referring to the std_obj
+    if (this.activeEffect=="fade") { }
+
+    var doSomeEffects = function() {
+
+      // the 'this' pointer is referring to the window obj.
+      if (this.activeEffect=="fade") { }
+
+    }
+    doSomeEffects();   
+  }
+};
+
+std_obj.displayMe();
+
+Solution:
+
+var std_obj = {
+  ...
+  displayMe() {
+    ...
+    var doSomeEffects = () => {
+                        ^^^^^^^    ARROW FUNCTION    
+      // In an arrow function, the 'this' pointer is interpreted lexically,
+      // so it will refer to the object as desired.
+      if (this.activeEffect=="fade") { }
+    };
+    ...    
+  }
+};
+
+Example 2:
+
+Problem :
+
+function Counter() {
+  this.num = 0;
+  this.timer = setInterval(function add() {
+    this.num++;
+    console.log(this.num);
+  }, 1000);
+}
+
+var b = new Counter();
+// NaN
+// NaN
+// NaN
+// ...
+
+Solution:
+
+function Counter() {
+  this.num = 0;
+  this.timer = setInterval(() => {
+    this.num++;
+    console.log(this.num);
+  }, 1000);
+}
+
+var b = new Counter();
+// 1
+// 2
+// 3
+// ...
+
 // Lets have some public private privileged access patterns for javascript
 
 function Container(param) {
@@ -260,6 +337,7 @@ function Container(param) {
 }
 
 //public method
+
 Container.prototype.stamp = function (string) {
     return this.member + string;
 }
