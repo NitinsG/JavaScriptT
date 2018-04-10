@@ -175,6 +175,27 @@ For clarity, here is all of the code together in one block. Look it over, and co
  console.log(bindTest); // logs => function (b,c,d){console.log(this.a+b+c+d);}
  bindTest(3,4); // logs 100+2+3+4 => 109
 
+//Other concept where 'this' and 'new' are useful is chaning the function calls.
 
+ function chain(){
+  let a = 0;
+  this.add = function(b){
+    a = a + b;
+    return this;
+  }
+  this.mul = function(b){
+    a = a * b;
+    return this;
+  }
+  this.equal = function (callback){
+      callback();
+  }
+ }
+
+ new chain()
+     .add(1)
+     .add(2)
+     .mul(3)
+     .equal(function () {})
 
 
