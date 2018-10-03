@@ -2,8 +2,14 @@
 
 // Closures are exposed nested functions
 
-// Closure is an object that captures the context in place when a function is created. The closure "remembers" all the variables that are in scope at the time the inner function is created. If we just call the inner function right away, the closure gets thrown away when the containing function ends, but if we
+/* Closure is an object that captures the context in place when a function is created. The closure "remembers" all the variables that are in scope at the time the inner function is created. If we just call the inner function right away, the closure gets thrown away when the containing function ends, but if we
 return that inner function, the closure comes along with it.
+
+The closure looks a lot like the scope object that's added to the chain when we call a nested function from its containing function (for example, if we called adder() from inside makeAdder()). Although here, we use the closure instead of the scope object because we're calling the returned function (f ()) after the containing function has returned, so we can't use the normal scope chain to find the values of the variables in f (); we have to use the closure instead. We've "captured" the scope, or context, within which the nested function was created in the closure so we can refer to the variables long after the containing function has completed execution.
+
+Note: Closure of only those variables get created which are used inside inner function , not all the variables created in outer scope of inner function.
+
+*/
 
 /*
 
@@ -19,6 +25,7 @@ Will that be a problem? No, of course it won’t because it’s a Closure!
 
 Scopes plays vital role in Clousers , functions are use for creating the new scopes and once excuted its scopes can persist if the nested function inside it is exposed 
 and refernces a outer scope variable.
+
 
 */
 
