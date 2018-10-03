@@ -2,6 +2,9 @@
 
 // Closures are exposed nested functions
 
+// Closure is an object that captures the context in place when a function is created. The closure "remembers" all the variables that are in scope at the time the inner function is created. If we just call the inner function right away, the closure gets thrown away when the containing function ends, but if we
+return that inner function, the closure comes along with it.
+
 /*
 
 If you declare a variable inside a function it won’t be available outside of it. But we can also define functions inside of other functions which will 

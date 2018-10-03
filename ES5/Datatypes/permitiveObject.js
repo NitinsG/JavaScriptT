@@ -41,6 +41,8 @@ Most values convert to true with the exception of the following (which convert t
 6. The boolean false
 
 These six values are sometimes referred to as being falsy, while all others are truthy (including, for example, the strings "0", " ", and "false"). 
+
+Note : Permitive Datatypes are passed by value, while other datatypes are passed by reference. This can cause some unexpected side effects if you are not aware of.
 */
 
 
