@@ -7,8 +7,13 @@ return that inner function, the closure comes along with it.
 
 The closure looks a lot like the scope object that's added to the chain when we call a nested function from its containing function (for example, if we called adder() from inside makeAdder()). Although here, we use the closure instead of the scope object because we're calling the returned function (f ()) after the containing function has returned, so we can't use the normal scope chain to find the values of the variables in f (); we have to use the closure instead. We've "captured" the scope, or context, within which the nested function was created in the closure so we can refer to the variables long after the containing function has completed execution.
 
-Note: Closure of only those variables get created which are used inside inner function , not all the variables created in outer scope of inner function.
+Note: 1. Closure of only those variables get created which are used inside inner function , not all the variables created in outer scope of inner function.
 
+Note: 2. Closure will not include any outer scoped variable that is replaced/overridden inside the inner function.
+ 
+Note: 3. Each Closure is Unique. Each call to closure function is unique.
+
+Note: 4. Closures work for methods (which are just functions in objects) too. 
 */
 
 /*
