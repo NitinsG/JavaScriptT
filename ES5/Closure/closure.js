@@ -1,6 +1,6 @@
 // Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.
 
-// Closures are exposed nested functions
+// Closures are exposed nested functions, A closure is the combination of a function and the lexical environment within which that function was declared. 
 
 /* Closure is an object that captures the context in place when a function is created. The closure "remembers" all the variables that are in scope at the time the inner function is created. If we just call the inner function right away, the closure gets thrown away when the containing function ends, but if we
 return that inner function, the closure comes along with it.
@@ -14,6 +14,7 @@ Note: 2. Closure will not include any outer scoped variable that is replaced/ove
 Note: 3. Each Closure is Unique. Each call to closure function is unique.
 
 Note: 4. Closures work for methods (which are just functions in objects) too. 
+
 */
 
 /*
