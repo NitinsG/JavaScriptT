@@ -16,6 +16,16 @@ var cat = new Cat('Fluffy', 'White')
 display(cat)
 cat.speak()
 
+// Object property have Descriptors
+'use strict';
+
+var cat = {
+    name: 'Fluffy', 
+    color: 'White'
+}
+
+display(Object.getOwnPropertyDescriptor(cat, 'name'))
+
 //getter and setter Example
 'use strict';
 
