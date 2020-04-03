@@ -16,7 +16,11 @@ var cat = new Cat('Fluffy', 'White')
 display(cat)
 cat.speak()
 
-// Object property have Descriptors
+/* 
+Object property have Descriptors
+value , writeable, enumrable , configurable 
+*/
+
 'use strict';
 
 var cat = {
@@ -25,6 +29,15 @@ var cat = {
 }
 
 display(Object.getOwnPropertyDescriptor(cat, 'name'))
+
+/*
+ Output
+    Object{ value: 'Fluffy'
+            writable : true,   writable flase means value of name attribute cant be changed
+            enumrable : true,  if set to false , name property will not shown in iteration of object keys.
+            configurable : true  if set to false , it dont let set confiurable , enumrable to true and dont let delete the property.
+          }
+ */
 
 //getter and setter Example
 'use strict';
