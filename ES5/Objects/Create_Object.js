@@ -1,3 +1,29 @@
+// literal creation of Object
+
+cat = { name: "Fluffy", color: "White" }
+
+// Using new operator
+
+function cat(name, color) {
+  this.name = name
+  this.color = color
+}
+
+var abc = new cat('Fluffy', 'White');
+
+/* 
+new operator creates a object and pass it to the function, so that 'this' can point to it. So the above cat function look like below:
+
+function cat(name, color){
+    let abc = {};
+    abc.name = name
+    abc.color = color
+    return abc
+}
+
+In above code abc is replaced with 'this', and object creation and return statement will be reoved.
+*/
+
 // Using Class
 
 class Cat {
