@@ -9,6 +9,14 @@ fn();   // true
 
 let o = { carId: 123, 
           getId: function() {
+                    console.log(this === window);
+                 }
+        }
+        
+console.log(o.getId());   // false, here the context is o.
+
+let o = { carId: 123, 
+          getId: function() {
                     return this.carId;
                  }
         }
@@ -26,6 +34,3 @@ let o = { carId: 123,
 console.log(o.getId()); // Reference Error, carId not defined.
 // Here there is no 'this' used , though function with o is called , but compiler will look for carId in window object. 
 // Which is undefined.
-
-
-
