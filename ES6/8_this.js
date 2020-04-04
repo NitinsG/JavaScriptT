@@ -45,7 +45,51 @@ let o = { carId: 123,
         
 console.log(o.getId());   // 234 , Here 
 
+ //- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+/* Now story comes of call and apply function.
+   How and why we need to use it 
+*/
+//call function
+//call immidealtiy invoke the function with supplied context as parameter. This is required when you change context from o to newCar.
 
+let o = { carId: 123, 
+          getId: function() {
+                    return this.carId;    // return window.carId , which is 234, this.carId is 123.
+                 }
+        }
 
+let newCar = { carId : 234 };
 
+console.log(o.getId.call(newCar)); // 234, Here we send a newCar as a context to 'this' instead of o object.
+
+// apply
+/* The difference between call and apply is , with apply you can send additional argument to function, like below */
+
+let o = { carId: 123, 
+          getId: function(prefix) {
+                    return prefix + this.carId;    // return window.carId , which is 234, this.carId is 123.
+                 }
+        }
+
+let newCar = { carId : 234 };
+
+console.log(o.getId.apply(newCar, ['ID :'));  // ID : 234
+                                   
+// bind 
+/* bind function same as other function, the only difference is instead of calling the function at the same time, it return
+the copy of function binded with new context suppiled , as later you can invoke the function */
+
+let o = { carId: 123, 
+          getId: function(prefix) {
+                    return prefix + this.carId;    // return window.carId , which is 234, this.carId is 123.
+                 }
+        }
+
+let newCar = { carId : 234 };
+console.log(o.getId.bind(newCar, ['ID :'));                                 
+                                   
+                                   
+                                   
+                                   
+                                   
