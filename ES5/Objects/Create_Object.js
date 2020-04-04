@@ -21,8 +21,40 @@ function cat(name, color){
     return abc;
 }
 
+here abc.__proto__ will point to cat.prototype
+
 In above code abc is replaced with 'this', and object creation and return statement will be reoved.
 */
+
+//Using Object.create
+/*
+The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
+*/
+
+
+const person = {
+  isHuman: false,
+  printIntroduction: function () {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  }
+};
+
+const me = Object.create(person);
+
+me.name = "Matthew"; // "name" is a property set on "me", but not on "person"
+me.isHuman = true; // inherited properties can be overwritten
+
+me.printIntroduction();
+// expected output: "My name is Matthew. Am I human? true"
+console.log(me.__proto__) // it will point to person.
+
+/*Output
+> "My name is Matthew. Am I human? true"
+> Object { isHuman: false, printIntroduction: function () {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  } }
+*/
+
 
 // Using Class
 
