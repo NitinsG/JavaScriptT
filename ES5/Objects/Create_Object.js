@@ -55,6 +55,14 @@ console.log(me.__proto__) // it will point to person.
   } }
 */
 
+/*
+Very simply said, new X is Object.create(X.prototype) with additionally running the constructor function. 
+And giving the constructor the chance to return the actual object that should be the result of the expression.
+
+That’s it. :)
+
+*/
+
 
 // Using Class
 
