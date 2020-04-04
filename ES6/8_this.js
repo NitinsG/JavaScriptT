@@ -84,11 +84,11 @@ let o = { carId: 123,
           getId: function(prefix) {
                     return prefix + this.carId;    // return window.carId , which is 234, this.carId is 123.
                  }
-        }
+        };
 
 let newCar = { carId : 234 };
-console.log(o.getId.bind(newCar, ['ID :'));                                 
-                                   
+let newFn = o.getId.bind(newCar);       // copy of function is retuned with new context binded to it.                            
+console.log(newFn()); // 234            Here we call the function                       
                                    
                                    
                                    
