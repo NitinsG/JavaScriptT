@@ -1,6 +1,14 @@
 
+// Object Destructuring
 // Assign variables from Objects
 // a convenient way of extracting multiple values from data stored in (possibly nested) objects and Arrays
+
+let car = { id: 5000 , style: 'convertable' };
+let { id , style} = car
+console.logs(id , style);  // 5000 convertable
+
+let { id , style}       // if need to done in multiline
+({id, style} = car);
 
 //OLD
 var abc = {a: 1, b: 2, c:3 };
