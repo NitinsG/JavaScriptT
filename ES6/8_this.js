@@ -15,6 +15,8 @@ let o = { carId: 123,
         
 console.log(o.getId());   // false, here the context is o.
 
+//Same function like below without this
+
 let o = { carId: 123, 
           getId: function() {
                     return carId;           
@@ -33,6 +35,6 @@ let o = { carId: 123,
         
 console.log(o.getId()); // 123    Here 'this' refers to o.
 
-//Same function like below without this
+
 
 
