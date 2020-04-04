@@ -5,8 +5,8 @@ cat = { name: "Fluffy", color: "White" }
 // Using new operator
 
 function cat(name, color) {
-  this.name = name
-  this.color = color
+  this.name = name;
+  this.color = color;
 }
 
 var abc = new cat('Fluffy', 'White');
@@ -16,9 +16,9 @@ new operator creates a object and pass it to the function, so that 'this' can po
 
 function cat(name, color){
     let abc = {};
-    abc.name = name
-    abc.color = color
-    return abc
+    abc.name = name;
+    abc.color = color;
+    return abc;
 }
 
 In above code abc is replaced with 'this', and object creation and return statement will be reoved.
