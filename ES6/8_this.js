@@ -90,6 +90,19 @@ let newCar = { carId : 234 };
 let newFn = o.getId.bind(newCar);       // copy of function is retuned with new context binded to it.                            
 console.log(newFn()); // 234            Here we call the function                       
                                    
-                                   
-                                   
+//Using Function
+var Task = function (name) {
+    this.name = name;
+    this.completed = false;
+
+ this.complete = function () {
+    console.log('completing task: ' + this.name);
+    this.completed = true;
+ };
+
+ this.save = function () {
+    console.log('saving Task: ' + this.name);
+ };
+};                                   
+
                                    
